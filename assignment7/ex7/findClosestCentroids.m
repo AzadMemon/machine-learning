@@ -20,11 +20,18 @@ idx = zeros(size(X,1), 1);
 %
 % Note: You can use a for-loop over the examples to compute this.
 %
-
-
-
-
-
+for i=1:size(X,1)
+  minValue = Inf;
+  
+  for j=1:K
+    euclideanNorm = norm(X(i,:) - centroids(j,:))^2;
+    
+    if (euclideanNorm < minValue)
+      minValue = euclideanNorm;
+      idx(i) = j;
+    endif;
+  endfor;
+endfor;
 
 
 % =============================================================

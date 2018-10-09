@@ -26,7 +26,11 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
+for i = 1:K
+  indexOfExamplesAtCentroid = idx == i;
+  examplesAtCentroid = indexOfExamplesAtCentroid.*X;
+  centroids(i,:) = 1/sum(indexOfExamplesAtCentroid).*sum(examplesAtCentroid, 1);
+endfor;
 
 
 
